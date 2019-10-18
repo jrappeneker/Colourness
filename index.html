@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Colour Perception Lab</title>
+  </head>
+  <body>
+    <div class="container" style="height=100vh;">
+      <h1>What Colour?</h1>
+      <div class="row">
+        <div class="col-sm" id="top-left">
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm" id="top-right">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+          <div id="color-box" class="card">
+            <div class="card-body">
+              <br /><br /><br />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm" id="bottom-left">
+        </div>
+        <div class="col-sm">
+        </div>
+        <div class="col-sm" id="bottom-right">
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      var box = document.getElementById('color-box');
+      var hue = Math.floor(Math.random() * 360)
+      box.style.backgroundColor = `hsla(${hue}, 100%, 50%, 100%)`;
+      var boxes = ["top-left","top-right","bottom-right", "bottom-left"];
+      for (i = 0; i < 4; i++) {
+        hue = i*60;
+        if (hue == 180) {
+          hue = 240;
+        }
+        var box = document.getElementById(boxes[i]);
+        box.innerHTML = `<div class="card" style="background-color:hsl(${hue},100%,60%);"><div class="card-body"><br /><br /><br /></div></div>`;
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
