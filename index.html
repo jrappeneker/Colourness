@@ -49,9 +49,22 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script>
+      function randomColour() {
+        var hue;
+        // Red-Yellow
+        if (Math.random() > 0.5) {
+          hue = Math.floor(Math.random() * 60);
+        } else {
+          hue = Math.floor(Math.random() * 120)+120;
+        }
+
+        console.log(hue);
+        return `hsla(${hue}, 100%, 50%, 100%)`;
+      }
+
       var box = document.getElementById('color-box');
       var hue = Math.floor(Math.random() * 360);
-      box.style.backgroundColor = `hsla(${hue}, 100%, 50%, 100%)`;
+      box.style.backgroundColor = randomColour();
       var boxes = ["top-left","top-right","bottom-right", "bottom-left"];
       for (i = 0; i < 4; i++) {
         hue = i*60;
@@ -63,8 +76,7 @@
       }
 
       document.getElementById('button').onclick = function() {
-        var newHue = Math.floor(Math.random() * 360);
-        document.getElementById('color-box').style.backgroundColor = `hsla(${newHue}, 100%, 50%, 100%)`;
+        document.getElementById('color-box').style.backgroundColor = randomColour();
       }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
