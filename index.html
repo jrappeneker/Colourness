@@ -11,37 +11,41 @@
     <title>Colour Perception Lab</title>
   </head>
   <body>
-    <div class="container" style="height=100vh;">
-      <h1>What Colour?</h1>
+    <div class="container-fluid">
+      <h3>Tap the colour most similar to the patch in the center</h3>
       <div class="row">
-        <div class="col-sm" id="top-left">
-        </div>
-        <div class="col-sm">
-        </div>
-        <div class="col-sm" id="top-right">
-        </div>
+        <div class="col" id="top-left"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col" id="top-right"></div>
       </div>
 
       <div class="row">
-        <div class="col-sm">
-        </div>
-        <div class="col-sm">
+        <div class="col"></div>
+        <div class="col">
           <div id="color-box" class="card">
             <div class="card-body">
               <br /><br /><br />
             </div>
           </div>
         </div>
-        <div class="col-sm">
-        </div>
+        <div class="col"></div>
       </div>
 
       <div class="row">
-        <div class="col-sm" id="bottom-left">
-        </div>
-        <div class="col-sm">
-        </div>
-        <div class="col-sm" id="bottom-right">
+        <div class="col" id="bottom-left"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="col" id="bottom-right"></div>
+      </div>
+      <div class="row align-items-center">
+        <div class="col mt-1">
+          <button id="button" type="button" class="btn btn-primary">Reset</button>
         </div>
       </div>
     </div>
@@ -49,7 +53,7 @@
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script>
       var box = document.getElementById('color-box');
-      var hue = Math.floor(Math.random() * 360)
+      var hue = Math.floor(Math.random() * 360);
       box.style.backgroundColor = `hsla(${hue}, 100%, 50%, 100%)`;
       var boxes = ["top-left","top-right","bottom-right", "bottom-left"];
       for (i = 0; i < 4; i++) {
@@ -59,6 +63,11 @@
         }
         var box = document.getElementById(boxes[i]);
         box.innerHTML = `<div class="card" style="background-color:hsl(${hue},100%,60%);"><div class="card-body"><br /><br /><br /></div></div>`;
+      }
+
+      document.getElementById('button').onclick = function() {
+        var newHue = Math.floor(Math.random() * 360);
+        document.getElementById('color-box').style.backgroundColor = `hsla(${newHue}, 100%, 50%, 100%)`;
       }
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
